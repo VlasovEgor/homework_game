@@ -371,6 +371,7 @@
 "Assets/Scripts/Mechanics/Jump.cs"
 "Assets/Scripts/Mechanics/Movement.cs"
 "Assets/Scripts/Mechanics/RestoreHitPoints.cs"
+"Assets/Scripts/Mechanics/ShootEngine.cs"
 "Assets/Scripts/Mechanics/Shot.cs"
 "Assets/Scripts/Mechanics/TakeDamage.cs"
 "Assets/Scripts/Primitives/CollisionBehaviour.cs"

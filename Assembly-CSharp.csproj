@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Primitives\TimerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Primitives\PeriodBehaviour.cs" />
     <Compile Include="Assets\Scripts\Mechanics\TakeDamage.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\ShootEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
