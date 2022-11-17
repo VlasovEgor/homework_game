@@ -58,22 +58,32 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Mechanics\Movement.cs" />
     <Compile Include="Assets\Scripts\Primitives\EventReceiver_Collision.cs" />
+    <Compile Include="Assets\Scripts\Components\MovingComponent.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Primitives\EventReceiver.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MoveController.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Jump.cs" />
+    <Compile Include="Assets\Scripts\EquatedPositionVisualLayer.cs" />
     <Compile Include="Assets\Scripts\Mechanics\RestoreHitPoints.cs" />
     <Compile Include="Assets\Scripts\Primitives\IntEventReceiver.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Shot.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Death.cs" />
+    <Compile Include="Assets\Scripts\Components\IMovingComponent.cs" />
     <Compile Include="Assets\Scripts\Primitives\IntBehaviour.cs" />
     <Compile Include="Assets\Scripts\Primitives\VectorEventReceiver.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Attack.cs" />
-    <Compile Include="Assets\Scripts\Primitives\VectorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Primitives\CollisionBehaviour.cs" />
     <Compile Include="Assets\Scripts\Primitives\TimerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Primitives\PeriodBehaviour.cs" />
     <Compile Include="Assets\Scripts\Mechanics\TakeDamage.cs" />
     <Compile Include="Assets\Scripts\Mechanics\ShootEngine.cs" />
+    <Compile Include="Assets\Scripts\Controllers\JumpController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\AttackController.cs" />
+    <Compile Include="Assets\Scripts\Components\IJumpComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\JumpComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\IShotComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\ShotComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -815,6 +825,10 @@
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{6BAE63DB-B39C-0887-8CB6-4DCCDC14FF89}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Entities.csproj">
+      <Project>{52B7D77D-75A1-9110-3A7D-DACECB54C996}</Project>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
