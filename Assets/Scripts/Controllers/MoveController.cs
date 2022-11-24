@@ -1,24 +1,24 @@
 using UnityEngine;
 
-public class MoveController : MonoBehaviour
+public class MoveController : MonoBehaviour,  IConstructListener, IStartGameListener, IFinishGameListener
 {
-    [SerializeField] private Entity _unit;
     private IMovingComponent _movingComponent;
+    private ManipulatorsInput _manipulatorsInput;
 
-    private void Awake()
+    public void Construct(GameContext context)
     {
-        _movingComponent = _unit.Get<IMovingComponent>();
+        _manipulatorsInput = context.GetService<ManipulatorsInput>();
+        _movingComponent = context.GetService<CharacterService>().GetCharacter().Get<IMovingComponent>();
     }
 
-    private void FixedUpdate()
+    public void OnStartGame()
     {
-        HandleKeyvoard();
+        _manipulatorsInput.OnMove += Move;
     }
 
-    private void HandleKeyvoard()
+    public void OnFinishGame()
     {
-        Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Move(inputVector);
+        _manipulatorsInput.OnMove += Move;
     }
 
     public void Move(Vector3 inputVector)

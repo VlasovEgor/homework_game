@@ -1,20 +1,28 @@
 using UnityEngine;
 
-public class JumpController : MonoBehaviour
+public class JumpController : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
 {
-    [SerializeField] private Entity _unit;
     private IJumpComponent _jumpComponent;
+    private ManipulatorsInput _manipulatorsInput;
 
-    private void Awake()
+    public void Construct(GameContext context)
     {
-        _jumpComponent = _unit.Get<IJumpComponent>();
+        _manipulatorsInput = context.GetService<ManipulatorsInput>();
+        _jumpComponent = context.GetService<CharacterService>().GetCharacter().Get<IJumpComponent>();
     }
 
-    void Update()
+    public void OnStartGame()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _jumpComponent.Jump();
-        }
+        _manipulatorsInput.OnJump += Jump;
+    }
+
+    public void OnFinishGame()
+    {
+        _manipulatorsInput.OnJump -= Jump;
+    }
+
+    private void Jump()
+    {
+        _jumpComponent.Jump();
     }
 }

@@ -1,20 +1,27 @@
 using UnityEngine;
 
-public class AttackController : MonoBehaviour
+public class AttackController : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
 {
-    [SerializeField] private Entity _unit;
     private IShotComponent _shotComponent;
+    private ManipulatorsInput _manipulatorsInput;
 
-    private void Awake()
+    public void Construct(GameContext context)
     {
-        _shotComponent = _unit.Get<IShotComponent>();
+        _manipulatorsInput = context.GetService<ManipulatorsInput>();
+        _shotComponent = context.GetService<CharacterService>().GetCharacter().Get<IShotComponent>();
+    }
+    public void OnStartGame()
+    {
+        _manipulatorsInput.OnShoot += Shot;
     }
 
-    void Update()
+    public void OnFinishGame()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _shotComponent.Shoot();
-        }
+        _manipulatorsInput.OnShoot += Shot;
+    }
+
+    private void Shot()
+    {
+        _shotComponent.Shoot();
     }
 }

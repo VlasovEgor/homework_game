@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class FinishGame : MonoBehaviour, IConstractListener
+public class FinishGame : MonoBehaviour, IConstructListener
 {
     [SerializeField] private EventReceiver_Trigger _deathZoneTrigger;
     [SerializeField] private GameContext _context;

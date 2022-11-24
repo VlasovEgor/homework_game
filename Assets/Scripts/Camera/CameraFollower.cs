@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour, IConstractListener, IStartGameListener, IFinishGameListener
+public class CameraFollower : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
 {
     private Transform _targetCamera;
     private IGetPlayerPhysicsComponent _getPositionComponent;

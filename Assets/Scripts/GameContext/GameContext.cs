@@ -48,7 +48,7 @@ public class GameContext : MonoBehaviour
     {
         foreach (var listener in _listeners)
         {
-            if (listener is IConstractListener constractListener)
+            if (listener is IConstructListener constractListener)
             {
                 constractListener.Construct(context: this);
             }
