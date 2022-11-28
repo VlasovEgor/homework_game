@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
     {
         for (int i = 0; i < _components.Length; i++)
         {
-
+            
             if (_components[i] is T result)
             {
                 return result;

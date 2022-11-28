@@ -17,8 +17,8 @@ public class StartGame : MonoBehaviour
 
     private void Start()
     {
-        _timerGameStart.Play();
         _context.ConstructGame();
+        _timerGameStart.Play(); 
     }
 
     private void GameStarted()
