@@ -7,17 +7,17 @@ public class EndGameController : MonoBehaviour, IConstructListener
     public void Construct(GameContext context)
     {
         _context = context;
-        _context.GetService<CharacterService>().GetCharacter().Get<EventReceiver_Trigger>().OnTriggerEntered += OnTriggerEntered;
+        _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>().PlayerTriggerEntered += OnTriggerEntered;
     }
 
     private void OnDestroy()
     {
-        _context.GetService<CharacterService>().GetCharacter().Get<EventReceiver_Trigger>().OnTriggerEntered -= OnTriggerEntered;
+        _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>().PlayerTriggerEntered -= OnTriggerEntered;
     }
 
     private void OnTriggerEntered(Collider obj)
     {
-        if (obj.CompareTag("Player"))
+        if (obj.CompareTag("Finish"))
         {
             _context.FinishGame();
         }

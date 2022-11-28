@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CollisionBehaviour : MonoBehaviour
 {
-    [SerializeField] EventReceiver_Collision _groundedCollision;
+    [SerializeField] private EventReceiver_Collision _groundedCollision;
 
     private bool _grounded;
 

@@ -146,6 +146,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Money\MoneyPanel.cs" />
     <Compile Include="Assets\Scripts\Controllers\EndGameController.cs" />
+    <Compile Include="Assets\Scripts\Components\Interfaces\ITriggerComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\Player\TriggerComponent.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\PlayerTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
