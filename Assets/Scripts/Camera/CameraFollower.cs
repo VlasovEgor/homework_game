@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraFollower : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
 {
     private Transform _targetCamera;
-    private IGetPlayerPhysicsComponent _getPositionComponent;
+    private IGetPositionComponent _PositionComponent;
 
     private void Awake()
     {
@@ -13,13 +13,13 @@ public class CameraFollower : MonoBehaviour, IConstructListener, IStartGameListe
 
     private void LateUpdate()
     {
-        _targetCamera.position = _getPositionComponent.GetPlayerPosition();
+        _targetCamera.position = _PositionComponent.GetPosition();
     }
 
     public void Construct(GameContext context)
     {
         _targetCamera = context.GetService<CameraService>().CameraTransfrom;
-        _getPositionComponent = context.GetService<CharacterService>().GetCharacter().Get<IGetPlayerPhysicsComponent>();
+        _PositionComponent = context.GetService<CharacterService>().GetCharacter().Get<IGetPositionComponent>();
     }
 
     public void OnStartGame()

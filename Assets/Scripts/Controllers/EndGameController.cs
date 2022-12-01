@@ -1,18 +1,24 @@
 using UnityEngine;
 
-public class EndGameController : MonoBehaviour, IConstructListener
+public class EndGameController : MonoBehaviour, IConstructListener,IStartGameListener,IFinishGameListener
 {
     private GameContext _context;
+    private ITriggerComponent _playerComponent;
 
     public void Construct(GameContext context)
     {
         _context = context;
-        _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>().PlayerTriggerEntered += OnTriggerEntered;
+        _playerComponent = _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>();
     }
 
-    private void OnDestroy()
+    public void OnStartGame()
     {
-        _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>().PlayerTriggerEntered -= OnTriggerEntered;
+        _playerComponent.OnTriggerEntered += OnTriggerEntered;
+    }
+
+    public void OnFinishGame()
+    {
+        _playerComponent.OnTriggerEntered -= OnTriggerEntered;
     }
 
     private void OnTriggerEntered(Collider obj)
